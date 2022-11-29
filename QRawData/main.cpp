@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     QObject::connect(button, &QPushButton::clicked, [&](){          //버튼 클릭시 동작
         QString fileName = QFileDialog::getOpenFileName(0,          //파일명 입력
                             "Open a file", QDir::homePath(),
-                            "Image file(*.raw *.pgm *.pbm *.bmp *.jpg *.png)");
+                            "Image file(*.raw *.pgm *.ppm *.pbm *.bmp *.jpg *.png)");
         if(!fileName.length())return;       //만약 이미지를 불러오지 못하면 리턴
 
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
         if(fileInfo.suffix() == "raw")
             imageLabel->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
         else
-            imageLabel->setPixmap(QPixmap(fileName).scaled(width, height));
+            imageLabel->setPixmap(QPixmap(fileName).scaled(width, height)); //높이와 너비에 맞게 이미지를 출력
         w.setWindowTitle(fileName);
     });
 
