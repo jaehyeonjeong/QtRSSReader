@@ -51,11 +51,11 @@ int main(int argc, char *argv[])
 
         //uchar를 QImage객체로 변환
         QImage image = QImage(data, width, height,
-                              QImage::Format_Grayscale8);
+                              QImage::Format_Grayscale8); //해당 이미지를 그레이스케일로 전환
         QFileInfo fileInfo(fileName);
 
-        if(fileInfo.suffix() == "raw")
-            imageLabel->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
+        if(fileInfo.suffix() == "raw")  //raw데이터 파일을 받을 때만
+            imageLabel->setPixmap(QPixmap::fromImage(image, Qt::AutoColor)); //raw데이터에 맞는 이미지 형식을 출력
         else
             imageLabel->setPixmap(QPixmap(fileName).scaled(width, height)); //높이와 너비에 맞게 이미지를 출력
         w.setWindowTitle(fileName);

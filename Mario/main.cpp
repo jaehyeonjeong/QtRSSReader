@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     file.open(QFile::WriteOnly);            //쓰기전용으로 열기
     file.write("P3\n");                     //ppm헤더는 p3
     file.write("14 17\n");                  //14열 17행
-    file.write("255\n");                    //256개의 비트 보유
+    file.write("255\n");                    //최대비트 설정
 
     for(int i = 0; i < 17; i++) {           //행
         for(int j = 0; j < 14; j++) {       //열
