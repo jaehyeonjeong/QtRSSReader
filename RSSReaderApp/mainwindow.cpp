@@ -134,6 +134,7 @@ void MainWindow::replyFinished(QNetworkReply* netReply)
 {
     QString str(netReply->readAll());
 
+    //
     /*리다이렉트가 되면 다시 연결*/
     QVariant vt = netReply->attribute(QNetworkRequest::RedirectPolicyAttribute);
     if(!vt.isNull()){
